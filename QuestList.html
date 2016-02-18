@@ -1,0 +1,1027 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta https-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 ,user-scalable = no" />
+    <link rel="stylesheet" href="Styles/MTN.css" />
+
+    <script src="Scripts/jquery.min.js"></script>
+
+    <script src="Scripts/MTNValidation.js"></script>
+
+    <link rel="stylesheet" href="Styles/jquery.signaturepad.css" />
+
+    <script type="text/javascript" src="Scripts/jquery.signaturepad.min.js"></script>
+
+    <script type="text/javascript" src="Scripts/json2.min.js"></script>
+
+    <script type="text/javascript">
+        function getGPSIncidentLocation() {
+           // alert("aa" + navigator.geolocation);
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPositionLatLng);
+            }
+            else { x.innerHTML = "Geolocation is not supported by this browser."; }
+        }
+        function showPositionLatLng(position) {
+          //  alert("Latitude  "+position.coords.latitude);
+            document.getElementById("divlat").innerHTML = 'Latitude : '+position.coords.latitude;
+            document.getElementById("divlong").innerHTML = 'Longitude : ' + position.coords.longitude;
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        function customCheckbox(checkboxName) {
+            var checkBox = $('input[name="' + checkboxName + '"]');
+            //alert(checkBox);
+            $(checkBox).each(function () {
+                $(this).wrap("<span class='custom-checkbox'></span>");
+                if ($(this).is(':checked')) {
+                    $(this).parent().addClass("selected");
+                }
+            });
+            $(checkBox).click(function () {
+                $(this).parent().toggleClass("selected");
+            });
+        }
+        $(document).ready(function () {
+           // debugger;
+            customCheckbox("chk[]");
+            //curtime
+
+        })
+        
+        function funAlert()
+        {
+            var r = confirm("Would you like to start this task?");
+            if (r == true)
+              {
+              //window.location="QuestList.html";
+                document.getElementById("comptask").className = "hidediv";
+                document.getElementById("quest1").className = "showdiv";
+              }
+            else
+              {
+              window.location="Customer.html";
+              }
+        }
+        
+        function gohome()
+        {
+            window.location="home.html";    
+        }
+        function Showsignature() {
+            $('#btnsignature').hide();
+            $('#frmsignature').attr('class', 'sigPad1 MTNQuestPic');
+            //  alert($('#btnTouch').width());
+            $('#canvaspad').attr('width', $('#btnsignature').width());
+
+            $('.sigPad1').signaturePad({ drawOnly: true });
+
+        }
+        function ShowsignatureAprove() {
+            $('#btnCustTakeSign').hide();
+            $('#frmsignature1').attr('class', 'sigPad2 MTNQuestPic');
+            //  alert($('#btnTouch').width());
+            $('#canvaspad1').attr('width', $('#btnCustTakeSign').width());
+
+            $('.sigPad2').signaturePad({ drawOnly: true });
+        }
+    </script>
+
+    <style type="text/css">
+        .MTNQuest
+        {
+            margin: 0px;
+            background-color: #000;
+        }
+        .MTNQuestMain
+        {
+            width: 99.8%;
+            background-color: #000;
+            display: inline-block;
+        }
+        .MTNHeader
+        {
+            width: 100%;
+            background-color: #000;
+            height: 50px;
+        }
+        .MTNHeaderInner
+        {
+            width: 90%;
+            margin: auto;
+        }
+        .MTNHeaderLogoDiv
+        {
+            width: 10%;
+            float: left;
+        }
+        .MTNHeaderLogoImg
+        {
+            width: 100%;
+            padding-top: 10px;
+            height: 35px;
+        }
+        .MTNHeading
+        {
+            width: 88%;
+            color: #fff;
+            float: left;
+            height: 35px;
+            padding-top: 20px;
+            padding-left: 4px;
+            font-family: Arial;
+            font-size: 16px;
+        }
+        .MTNUnderline
+        {
+            width: 100%;
+            background-color: #78C6DF;
+            height: 2px;
+            margin: 0px;
+        }
+        .MTNQuestHeading
+        {
+            width: 100%;
+            color: white;
+            height: 35px;
+            font-family: Arial;
+            font-size: 16px;
+        }
+        .MTNQuestContent
+        {
+            width: 100%;
+        }
+        .MTNContentBtn
+        {
+            margin-bottom: 20px;
+        }
+        .MTNQuestPic
+        {
+            width: 95%;
+            height: 150px;
+            background-color: black;
+            border: 4px solid #FFC000;
+            color: white;
+            font-family: Arial;
+            font-size: 16px;
+            border-radius: 18px;
+            margin: auto;
+            display: block;
+        }
+        .MTNQuestButtonDIv
+        {
+            width: 100%;
+        }
+        .MNSQuestImgDiv
+        {
+            width: 90%;
+            margin: auto;
+        }
+        .MNSQuestImg
+        {
+            width: 49%;
+            float: left;
+        }
+        .MTNQuestBtnSpace
+        {
+            width: 2%;
+            float: left;
+            height: 50px;
+        }
+        .MTNQuestTxtAreaDiv
+        {
+            width: 100%;
+            margin-top: 50px;
+            display: inline-block;
+        }
+        .MTNQuestTxtArea
+        {
+            width: 98%;
+            float: left;
+            margin: auto;
+            display: block;
+        }
+        .MTNQuestTxt
+        {
+            border-style: none;
+            width: 100%;
+            height: 88px;
+            background-color: #000;
+            color: #686868;
+            font-family: Arial;
+            font-size: 16px;
+            border: 1px solid #17515F;
+        }
+        .MTNSelect
+        {
+            border-style: none;
+            border-color: inherit;
+            border-width: 0px;
+            width: 95%;
+            height: 30px;
+            background-color: black;
+            color: white;
+            font-family: Arial;
+            font-size: 16px;
+            padding-left: 10px;
+            margin: 0px;
+		    border: 1px solid #17515F;
+        }
+        .MTNInnerContent
+        {
+            width: 100%;
+            color: white;
+            float: left;
+            font-family: Arial;
+            font-size: 16px;
+            text-align: justify;
+        }
+        .showdiv
+        {
+            display: block;
+        }
+        .hidediv
+        {
+            display: none;
+        }
+        #BtnAdd
+        {
+            border-style: none;
+            border-color: inherit;
+            border-width: medium;
+            height: 50px;
+        }
+        #BtnApprove
+        {
+            border-style: none;
+            border-color: inherit;
+            border-width: medium;
+            height: 50px;
+        }
+        .BtnStyle
+        {
+            width: 49%;
+            float: left;
+            background-color: #3d3d3d;
+            font-family: Arial;
+            font-size: medium;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .Plabels
+        {
+            font-family: Arial;
+            font-size: medium;
+            color: white;
+            text-align: center;
+        }
+        .price
+        {
+            color: white;
+            font-size: medium;
+            font-family: Arial;
+            text-align: right;
+        }
+        a
+        {
+            text-decoration: none;
+        }
+        .liimg
+        {
+            height: 65px;
+            width: 60px;
+            padding-right: 10px;
+        }
+        li
+        {
+            list-style: none;
+        }
+        .name
+        {
+            font-size: large;
+        }
+        .number
+        {
+            text-align: right;
+            font-size: small;
+            float: right;
+        }
+        .address
+        {
+            font-size: smaller;
+        }
+        .spantext
+        {
+            color: white;
+            font-family: Arial;
+        }
+        span
+        {
+            font-family: Arial;
+            color: white;
+        }
+    </style>
+
+    <script language="javascript">
+    var q1ans,q2ans,q3ans,q4ans,q5ans,q6ans,q7ans,q8ans;
+    function gonext(i)
+    {
+        if(i==1)
+        {   
+            document.getElementById("quest1").className = "hidediv";
+            document.getElementById("quest2").className = "showdiv";
+            var checkBox = $('#MtNChkbxsalesorder');
+            if(document.getElementById("lblPrice").value!="")
+            {            
+                q1ans=true;                
+                checkBox.parent().addClass("selected");
+            }
+            else
+            {
+                q1ans=false;                
+                checkBox.parent().removeClass("selected");
+            }
+        }
+        else if(i==2)
+        {
+            getGPSIncidentLocation();
+            document.getElementById("quest2").className = "hidediv";
+            document.getElementById("quest3").className = "showdiv";
+            var checkBox = $('#MtNChkbxDiscPerc');
+            if(document.getElementById("txtDiscPerc").value!="")
+            {
+                q2ans = true;                
+                checkBox.parent().addClass("selected");
+            }
+            else
+            {
+                q2ans=false;                
+                checkBox.parent().removeClass("selected");
+            }
+        }
+        else if(i==3)
+        {
+            document.getElementById("quest3").className = "hidediv";
+            document.getElementById("quest4").className = "showdiv";
+            var checkBox = $('#MtNChkbxCurLoc');
+            if(document.getElementById("divlat").value!="")
+            {
+                q3ans=true;
+                checkBox.parent().addClass("selected");
+            }
+            else
+            {
+                q3ans=false;                
+                checkBox.parent().removeClass("selected");
+            }
+        }
+        else if(i==4)
+        {
+            document.getElementById("quest4").className = "hidediv";
+            document.getElementById("quest5").className = "showdiv";
+            var checkBox = $('#MtNChkbxAcctOff');
+           // alert(document.getElementById("selQty").value);
+            if(document.getElementById("selAcctOff").value!="Please select an option ...")
+            {//alert('yes');
+                q4ans=true;
+                checkBox.parent().addClass("selected");
+            }
+            else
+            {
+                q4ans=false;                
+                checkBox.parent().removeClass("selected");
+            }
+        }
+        else if(i==5)
+        {
+            document.getElementById("quest5").className = "hidediv";
+            document.getElementById("quest6").className = "showdiv";
+            var checkBox = $('#MtNChkbxAcctOffSign');
+            //var checkBox = $('#MtNChkbxCustSign');
+            var sig = $('.sigPad1').signaturePad({ drawOnly: true });
+            var sigimg = sig.getSignatureImage();
+            if (sigimg != "")
+            {
+                q5ans=true;
+                checkBox.parent().addClass("selected");
+            }
+            else
+            {
+                q5ans=false;                
+                checkBox.parent().removeClass("selected");
+            }
+        }
+        else if(i==6)
+        {
+            document.getElementById("quest6").className = "hidediv";
+            document.getElementById("comptask").className = "showdiv";
+            var checkBox = $('#MtNChkbxApprMgr');
+            if(document.getElementById("selApprMgr").value!="Please select an option ...")
+            {
+                q6ans=true;
+                checkBox.parent().addClass("selected");
+            }
+            else
+            {
+                q6ans=false;                
+                checkBox.parent().removeClass("selected");
+            }
+            checkalert();
+        }
+//        else if(i==7)
+//        {
+//            document.getElementById("quest7").className = "hidediv";
+//            document.getElementById("quest8").className = "showdiv";
+//            var checkBox = $('#MtNChkbxCustName');
+//            if(document.getElementById("selCust").value!="Please select an option ...")
+//            {
+//                q7ans=true;
+//                checkBox.parent().addClass("selected");
+//            }
+//            else
+//            {
+//                q7ans=false;                
+//                checkBox.parent().removeClass("selected");
+//            }
+//        }
+//        else if(i==8)
+//        {
+//            document.getElementById("quest8").className = "hidediv";
+//            document.getElementById("comptask").className = "showdiv";
+//            var checkBox = $('#MtNChkbxCustSign');
+//            var sig = $('.sigPad1').signaturePad({ drawOnly: true });
+//            var sigimg = sig.getSignatureImage();
+//            if (sigimg != "")
+//            {
+//                q8ans=true;                
+//                checkBox.parent().addClass("selected");
+//            }
+//            else
+//            {
+//                q7ans=false;                
+//                checkBox.parent().removeClass("selected");
+//            }
+//            checkalert();
+//        }
+    }
+
+    function checkalert() {
+
+        var r = confirm("Would you like to complete this task?");
+        if (r == true) {
+            alert("Task Completed")
+        }
+        else {
+        }
+
+
+    }
+
+    function goprev(i)
+    {
+        if(i==1)
+        {
+            //document.getElementById("quest1").className = "hidediv";
+            //document.getElementById("quest2").className = "showdiv";
+        }
+        else if(i==2)
+        {
+            document.getElementById("quest2").className = "hidediv";
+            document.getElementById("quest1").className = "showdiv";
+        }
+        else if(i==3)
+        {
+            document.getElementById("quest3").className = "hidediv";
+            document.getElementById("quest2").className = "showdiv";
+        }
+        else if(i==4)
+        {
+            document.getElementById("quest4").className = "hidediv";
+            document.getElementById("quest3").className = "showdiv";
+        }
+        else if(i==5)
+        {
+            document.getElementById("quest5").className = "hidediv";
+            document.getElementById("quest4").className = "showdiv";
+        }
+        else if(i==6)
+        {
+            document.getElementById("quest6").className = "hidediv";
+            document.getElementById("quest5").className = "showdiv";
+        }
+        else if(i==7)
+        {
+            document.getElementById("quest7").className = "hidediv";
+            document.getElementById("quest6").className = "showdiv";
+        }
+        else if(i==8)
+        {
+            document.getElementById("quest8").className = "hidediv";
+            document.getElementById("quest7").className = "showdiv";
+        }
+    }
+    
+    function goList()
+    {
+        document.getElementById("divItemList").className = "showdiv";
+        document.getElementById("quest1").className = "hidediv";
+    }
+    
+    var selName='';
+    var selPr='';
+    
+    function goQtyPg(name,pr)
+    {   
+        selName=name;
+        selPr=pr;
+        document.getElementById("divItemList").className = "hidediv";
+        document.getElementById("divQty").className = "showdiv";
+        document.getElementById("txtQty").value=0;
+    } 
+    
+    function goQuest1()
+    {
+        document.getElementById("divQty").className = "hidediv";
+        document.getElementById("quest1").className = "showdiv";
+    }
+    
+    function goSign()
+    {
+        document.getElementById("quest1").className = "hidediv";
+        document.getElementById("divCustSign").className = "showdiv";
+    }
+    
+    function goSignQuest1()
+    {
+        document.getElementById("divCustSign").className = "hidediv";
+        document.getElementById("quest1").className = "showdiv";
+    }
+    
+    </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            var myObjects = [
+                {
+                    name: "Advanced Fleet Management",
+                    category: "M2M - Vehicle Tracking",
+                    description: "Advanced fleet management services",
+                    price: "90000",
+                },
+                {
+                    name: "Basic Model",
+                    category: "M2M - Vehicle Tracking",
+                    description: "Basic vehicle tracking service",
+                    price: "42000",
+                },
+                {
+                    name: "Fleet Management",
+                    category: "M2M - Vehicle Tracking",
+                    description: "Fleet management services",
+                    price: "60000",
+                },
+                {
+                    name: "Basic Edition",
+                    category: "Mobile Device Management",
+                    description: "MDM only",
+                    price: "750",
+                },
+                {
+                    name: "Professional Edition",
+                    category: "Mobile Device Management",
+                    description: "MDM + 750 MB Bundle",
+                    price: "3750",
+                },
+                {
+                    name: "Standard Edition",
+                    category: "Mobile Device Management",
+                    description: "MDM + 1.5 GB Bundle",
+                    price: "3750",
+                },
+                {
+                    name: "CUG Biz Cap",
+                    category: "Stark CUG",
+                    description: "500+ lines",
+                    price: "500",
+                },
+                {
+                    name: "CUG Plus 1000",
+                    category: "Stark CUG",
+                    description: "50+ lines",
+                    price: "1000",
+                },
+                {
+                    name: "CUG Plus 1500",
+                    category: "Stark CUG",
+                    description: "10+ lines",
+                    price: "1500",
+                },
+                {
+                    name: "CUG Xtra",
+                    category: "Stark CUG",
+                    description: "400+ lines",
+                    price: "750",
+                },
+                {
+                    name: "1 mbps (30 days)",
+                    category: "Stark Hynet",
+                    description: "1 mbps (30 days)",
+                    price: "17500",
+                },
+                {
+                    name: "1 mbps (6 months)",
+                    category: "Stark Hynet",
+                    description: "1 mbps (6 months)",
+                    price: "105000",
+                },
+                {
+                    name: "2 mbps (30 days)",
+                    category: "Stark Hynet",
+                    description: "2 mbps (30 days)",
+                    price: "26350",
+                },
+                {
+                    name: "0700 Smart Number",
+                    category: "Stark Smart Number",
+                    description: "Non toll free",
+                    price: "26250",
+                },
+                {
+                    name: "0800 Toll Free Smart Number",
+                    category: "Stark Smart Number",
+                    description: "Toll free",
+                    price: "26250",
+                },
+            ];
+            
+            $.each(myObjects, function () {
+                var parVal="goQtyPg('" + this.name + "'," + this.price + ")";  
+                //alert(parVal);
+                $("#unorderedlist").append(
+                '<li><a onclick="' + parVal + '"><div style="float:left"><img src="Images/Footerlogo.png" class="liimg"></div>' +
+                '<div><span class="name">' + this.name + '</span><br />' +
+                '<span class="address">' + this.category + '</span><br />' +
+                '<span class="address">' + this.description + '</span></div></a> </li><hr>');
+            });
+        });
+        
+        function addItems(name, qty, price)
+        {
+            var totpr=qty*price;
+            
+            document.getElementById("lblPrice").value=totpr;
+            document.getElementById("lblPrice").value=totpr;
+            
+            $("#ulAddedItems").append(
+                "<li><div><span class='name'>" + name + "</span><br />" +
+                "<span class='address'>" + qty + "</span> " +
+                "<span class='address'> @ " + price + "</span>" +
+                "<span class='number'>R" + totpr + "</span></div> </li><hr />");
+        }
+        
+        function callAddItem()
+        {
+            addItems(selName, document.getElementById("txtQty").value, selPr);
+            document.getElementById("divQty").className = "hidediv";
+            document.getElementById("quest1").className = "showdiv";
+        }
+    </script>
+
+</head>
+<body class="MTNQuest" onload="funAlert()">
+    <div class="MTNQuestMain">
+        <div class="MTNHeader">
+            <div class="MTNHeaderInner">
+                <div class="MTNHeaderLogoDiv">
+                    <img src="Images/Footerlogo.png" class="MTNHeaderLogoImg" alt="" onclick="gohome()" />
+                </div>
+                <div class="MTNHeading">
+                    (Halogen Security) 49 Adekunl
+                </div>
+            </div>
+        </div>
+        <div class="MTNUnderline">
+        </div>
+        <div id="comptask" class="showdiv">
+            <div class="MTNCompletedContentOuter">
+                <div class="MTNCompletedContent">
+                    <ul class="MNSItemsDiv">
+                        <li class="MNSList">
+                            <div class="MTNListItemText">
+                                Place a sales order</div>
+                            <div class="MTNChkbox">
+                                <input id="MtNChkbxsalesorder" type="checkbox" name="chk[]" />
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="MTNListItemBorder">
+                    </div>
+                    <ul class="MNSItemsDiv">
+                        <li class="MNSList">
+                            <div class="MTNListItemText">
+                                Discount Percentage</div>
+                            <div class="MTNChkbox">
+                                <input id="MtNChkbxDiscPerc" type="checkbox" name="chk[]" />
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="MTNListItemBorder">
+                    </div>
+                    <ul class="MNSItemsDiv">
+                        <li class="MNSList">
+                            <div class="MTNListItemText">
+                                Current Location</div>
+                            <div class="MTNChkbox">
+                                <input id="MtNChkbxCurLoc" type="checkbox" name="chk[]" />
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="MTNListItemBorder">
+                    </div>
+                    <ul class="MNSItemsDiv">
+                        <li class="MNSList">
+                            <div class="MTNListItemText">
+                                Account Officer</div>
+                            <div class="MTNChkbox">
+                                <input id="MtNChkbxAcctOff" type="checkbox" name="chk[]" />
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="MTNListItemBorder">
+                    </div>
+                    <ul class="MNSItemsDiv">
+                        <li class="MNSList">
+                            <div class="MTNListItemText">
+                                Account Officer Signature</div>
+                            <div class="MTNChkbox">
+                                <input id="MtNChkbxAcctOffSign" type="checkbox" name="chk[]" />
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="MTNListItemBorder">
+                    </div>
+                    <ul class="MNSItemsDiv">
+                        <li class="MNSList">
+                            <div class="MTNListItemText">
+                                Approving Manager</div>
+                            <div class="MTNChkbox">
+                                <input id="MtNChkbxApprMgr" type="checkbox" name="chk[]" />
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="MTNListItemBorder">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="quest1" class="hidediv">
+            <div class="MTNQuestHeading">
+                Task Order</div>
+            <div class="Plabels">
+                Place a Sales Order</div>
+            <br />
+            <div class="price">
+                <label id="lblPrice">
+                    R 0.00</label>
+            </div>
+            <br />
+            <div class="MNSQuestImgDiv">
+                <input id="BtnAdd" type="button" value="Add Button" class="BtnStyle" onclick="goList()" />
+                <div class="MTNQuestBtnSpace">
+                </div>
+                <input id="BtnApprove" type="button" value="Approve" class="BtnStyle" onclick="goSign()" />
+            </div>
+            <br />
+            <br />
+            <div class="MNSQuestImgDiv">
+                <img alt="" src="Images/previous.png" class="MNSQuestImg" onclick="goprev(1)" />
+                <div class="MTNQuestBtnSpace">
+                </div>
+                <img alt="" src="Images/next.png" class="MNSQuestImg" onclick="gonext(1)" />
+            </div>
+            <br />
+            <br />
+            <div>
+                <ul id="ulAddedItems" style="padding-left:5px">
+                    <li style="color:black">star</li>
+                </ul>
+            </div>
+            <br />
+        </div>
+        <div id="quest2" class="hidediv">
+            <div class="MTNQuestHeading">
+                Question 2 :</div>
+            <div class="MTNQuestContent">
+                <div class="MTNInnerContent">
+                    Discount Percentage</div>
+                <br />
+                <br />
+                <input type="text" id="txtDiscPerc" class="MTNQuestTxt" style="height: 20px; color: White;" />
+                <br />
+                <br />
+                <div class="MNSQuestImgDiv">
+                    <img alt="" src="Images/previous.png" class="MNSQuestImg" onclick="goprev(2)" />
+                    <div class="MTNQuestBtnSpace">
+                    </div>
+                    <img alt="" src="Images/next.png" class="MNSQuestImg" onclick="gonext(2)" />
+                </div>
+                <br />
+                <div class="MTNQuestTxtAreaDiv">
+                    <div class="MTNQuestTxtArea">
+                        <textarea id="Textarea3" class="MTNQuestTxt"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="quest3" class="hidediv">
+            <div class="MTNQuestHeading">
+                Current Location</div>
+            <div class="MTNQuestContent">
+                <div class="MTNInnerContent" id="divlat">
+                    Latitude : </div>
+                <br />
+                <br />
+                <div class="MTNInnerContent" id="divlong">
+                    Longitude : </div>
+                <br />
+                <br />
+                <div class="MNSQuestImgDiv">
+                    <img alt="" src="Images/previous.png" class="MNSQuestImg" onclick="goprev(3)" />
+                    <div class="MTNQuestBtnSpace">
+                    </div>
+                    <img alt="" src="Images/next.png" class="MNSQuestImg" onclick="gonext(3)" />
+                </div>
+                <br />
+                <div class="MTNQuestTxtAreaDiv">
+                    <div class="MTNQuestTxtArea">
+                        <textarea id="Textarea4" class="MTNQuestTxt"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="quest4" class="hidediv">
+            <div class="MTNQuestHeading">
+                Question 4 :</div>
+            <div class="MTNQuestContent">
+                <div class="MTNInnerContent">
+                    Account Officer</div>
+                <br />
+                <br />
+                <select id="selAcctOff" class="MTNSelect">
+                    <option>Please select an option ...</option>
+                    <option>Flora</option>
+                    <option>Mathew</option>
+                    <option>Manual</option>
+                    <option>Kim Hyun</option>
+                    <option>Kim Dhan Ji</option>
+                    <option>Lee Min Ho</option>
+                    <option>Jang Hyun suk </option>
+                </select>
+                <br />
+                <br />
+                <div class="MNSQuestImgDiv">
+                    <img alt="" src="Images/previous.png" class="MNSQuestImg" onclick="goprev(4)" />
+                    <div class="MTNQuestBtnSpace">
+                    </div>
+                    <img alt="" src="Images/next.png" class="MNSQuestImg" onclick="gonext(4)" />
+                </div>
+                <br />
+                <div class="MTNQuestTxtAreaDiv">
+                    <div class="MTNQuestTxtArea">
+                        <textarea id="Textarea5" class="MTNQuestTxt"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="quest5" class="hidediv">
+            <div class="MTNQuestHeading">
+                Account Officer Signature</div>
+            <div class="MTNQuestContent">
+                <div class="MTNCOntentBtn">
+                    <input id="btnsignature" type="button" value="Touch to take signature" class="MTNQuestPic"
+                        onclick="Showsignature();" />
+                    <form method="post" action="" class="sigPad1" id="frmsignature">
+                    <ul class="sigNav">
+                        <!-- <li class="drawIt"><a href="#draw-it">Initial 1</a></li>-->
+                        <li class="clearButton"><a href="#clear">Clear</a></li>
+                    </ul>
+                    <div class="sig sigWrapper">
+                        <div class="typed">
+                        </div>
+                        <canvas class="pad" height="150" id="canvaspad"></canvas>
+                        <input type="hidden" name="Surgoutput" class="output" />
+                    </div>
+                    </form>
+                </div>
+                <div class="MTNQuestButtonDIv">
+                    <div class="MNSQuestImgDiv">
+                        <img alt="" src="Images/previous.png" class="MNSQuestImg" onclick="goprev(5)" />
+                        <div class="MTNQuestBtnSpace">
+                        </div>
+                        <img alt="" src="Images/next.png" class="MNSQuestImg" onclick="gonext(5)" />
+                    </div>
+                </div>
+                <div class="MTNQuestTxtAreaDiv">
+                    <div class="MTNQuestTxtArea">
+                        <textarea id="Textarea7" class="MTNQuestTxt" placeholder="Notes:"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="quest6" class="hidediv">
+            <div class="MTNQuestHeading">
+                Question 6 :</div>
+            <div class="MTNQuestContent">
+                <div class="MTNInnerContent">
+                    Approving Manager</div>
+                <br />
+                <br />
+                <select id="selApprMgr" class="MTNSelect">
+                    <option>Please select an option ...</option>
+                    <option>Aaron Ogheze</option>
+                    <option>Chinedu Adim</option>
+                    <option>Desmond Idowu</option>
+                    <option>Happy Okodugha</option>
+                    <option>Segun Owowa</option>
+                    <option>Sunday Akpan</option>
+                    <option>Tolulope Idris</option>
+                </select>
+                <br />
+                <br />
+                <div class="MNSQuestImgDiv">
+                    <img alt="" src="Images/previous.png" class="MNSQuestImg" onclick="goprev(6)" />
+                    <div class="MTNQuestBtnSpace">
+                    </div>
+                    <img alt="" src="Images/next.png" class="MNSQuestImg" onclick="gonext(6)" />
+                </div>
+                <br />
+                <div class="MTNQuestTxtAreaDiv">
+                    <div class="MTNQuestTxtArea">
+                        <textarea id="Textarea6" class="MTNQuestTxt"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="divItemList" class="hidediv">
+            <div>
+                <ul id="unorderedlist">
+                </ul>
+            </div>
+        </div>
+        <div id="divQty" class="hidediv">
+            <div class="MTNQuestHeading">
+                Task Order - Quantity</div>
+            <div class="Plabels">
+                Enter quantity ordered:</div>
+            <br />
+            <div class="price">
+                <input type="text" id="txtQty" class="MTNQuestTxt" style="height: 20px; color: White;" />
+            </div>
+            <br />
+            <div class="MNSQuestImgDiv">
+                <input id="btnOK" type="button" value="OK" class="BtnStyle" onclick="callAddItem()" />
+                <div class="MTNQuestBtnSpace">
+                </div>
+                <input id="btnCancel" type="button" value="Cancel" class="BtnStyle" onclick="goQuest1()" />
+            </div>
+            <br />
+        </div>
+        <div id="divCustSign" class="hidediv">
+            <div class="MTNQuestHeading">
+                Customer Signature</div>
+            <div class="MTNQuestContent">
+                <div class="MTNCOntentBtn">
+                    <input id="btnCustTakeSign" type="button" value="Touch to take signature" class="MTNQuestPic"
+                        onclick="ShowsignatureAprove();" />
+                    <form method="post" action="" class="sigPad2" id="frmsignature1">
+                    <ul class="sigNav">
+                        <!-- <li class="drawIt"><a href="#draw-it">Initial 1</a></li>-->
+                        <li class="clearButton"><a href="#clear">Clear</a></li>
+                    </ul>
+                    <div class="sig sigWrapper">
+                        <div class="typed">
+                        </div>
+                        <canvas class="pad" height="150" id="canvaspad1"></canvas>
+                        <input type="hidden" name="Surgoutput" class="output" />
+                    </div>
+                    </form>
+                </div>
+                <div class="MNSQuestImgDiv">
+                    <input id="Button1" type="button" value="OK" class="BtnStyle" onclick="goSignQuest1()" />
+                    <div class="MTNQuestBtnSpace">
+                    </div>
+                    <input id="Button2" type="button" value="Cancel" class="BtnStyle" onclick="goSignQuest1()" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta https-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 ,user-scalable = no"/>
+    <link rel="stylesheet" href="css/MTN.css" />
+    <link rel="stylesheet" href="css/jquery.signaturepad.css" />
+    <script src="js/jquery.min.js"></script>
+     <script type="text/javascript" src="js/jquery.signaturepad.min.js"></script>
+    <script type="text/javascript" src="js/json2.min.js"></script>
+    
+    
+    <script language="javascript">
+function gonext()
+{
+    window.location="CompletedTasks.html";    
+}
+function goprev()
+{
+    window.location="Quest9.html";    
+}
+
+function Showsignature() {
+    $('#btnTouch').hide();
+    $('#frmsignature').attr('class', 'sigPad1 MTNQuestPic');
+  //  alert($('#btnTouch').width());
+    $('#canvaspad').attr('width', $('#btnTouch').width());
+    
+    $('.sigPad1').signaturePad({ drawOnly: true });
+    
+}
+    </script>
+
+</head>
+<body class="MTNQuest">
+    <div class="MTNQuestMain">
+        <div class="MTNHeader">
+            <div class="MTNHeaderInner">
+                <div class="MTNHeaderLogoDiv">
+                    <img src="img/Footerlogo.png" class="MTNHeaderLogoImg" alt="" />
+                </div>
+                <div class="MTNHeading">
+                    (Halogen Security) 49 Adekunl
+                </div>
+            </div>
+        </div>
+        <div class="MTNUnderline">
+        </div>
+        <div class="MTNQuestHeading">
+            Customer Signature</div>
+        <div class="MTNQuestContent">
+            <div class="MTNCOntentBtn">
+                <input id="btnTouch" type="button" value="Touch to take signature" class="MTNQuestPic" onclick="Showsignature();" />
+                <form method="post" action="" class="sigPad1" id="frmsignature">
+                    <ul class="sigNav">
+                       <!-- <li class="drawIt"><a href="#draw-it">Initial 1</a></li>-->
+                        <li class="clearButton"><a href="#clear">Clear</a></li>
+                    </ul>
+                    <div class="sig sigWrapper">
+                        <div class="typed"></div>
+                        <canvas class="pad" height="150" id="canvaspad"></canvas>
+                        <input type="hidden" name="Surgoutput" class="output" />
+                    </div>
+                </form>
+            </div>
+            <div class="MTNQuestButtonDIv">
+                <div class="MNSQuestImgDiv">
+                    <img alt="" src="img/previous.png" class="MNSQuestImg" onclick="goprev()" />
+                    <div class="MTNQuestBtnSpace">
+                    </div>  
+                    <img alt="" src="img/next.png" class="MNSQuestImg" onclick="gonext()" />
+                </div>
+            </div>
+            <div class="MTNQuestTxtAreaDiv">
+                <div class="MTNQuestTxtArea">
+                    <textarea id="txtNotes" class="MTNQuestTxt" placeholder="Notes:"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

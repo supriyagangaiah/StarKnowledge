@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta https-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 ,user-scalable = no"/>
+    <link rel="stylesheet" href="Styles/MTN.css" />
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="Scripts/MTNValidation.js"></script>
+    <script type="text/javascript" src="Scripts/cordova-2.7.0.js"></script>  
+
+</head>
+<body class="MTNLogin">
+    <div class="MTNMain">
+        <div class="MTNHeader">
+            <div class="MTNHeaderInner">
+                <div class="MTNHeaderLogoDiv">
+                    <img src="Images/Footerlogo.png"  alt="" style="padding-left:-5px;margin-top:8px;"/>
+                </div>
+                <div class="MTNHeading">
+                    SK
+                </div>
+            </div>
+        </div>
+      <div class="MTNUnderline"></div> 
+        <div class="MTNContentOuter">
+            <div class="MTNLogoOuterDiv">
+                <div class="MTNLogoDiv">
+                    <img src="Images/logo1.jpg" class="MTNLogoImg" alt="" />
+                </div>
+            </div>
+            <div class="MTNContentMain">
+                <div class="MTNContentInnerDiv">
+                    <input id="txtPhoneNo" type="text" placeholder="Your telephone number" class="MTNTxtbox" name="PhoneNo" />
+                    
+                    <div class="MTNValidationDiv">
+                        <span id="spnPhoneNoErr" class="MTNValidationTxt"></span>
+                    </div>
+
+                </div>
+                <div class="MTNContentInnerDiv">
+                    <input id="txtCompany" type="text" placeholder="Your Password" class="MTNTxtbox" name="Company" />
+                    <div class="MTNValidationDiv">
+                        <span id="spnCompanyErr" class="MTNValidationTxt"></span>
+                    </div>
+                </div>
+                <div class="MTNChkDetailsDiv">
+                    <input id="btnChkDetails" type="button" value="Check Details" class="MTNChkDetailsBtn"  />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

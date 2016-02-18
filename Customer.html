@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body
+        {
+            background-color: black;
+            text-align: left;
+        }
+        /*div.header {
+            background-color: black;
+        }*/.headertext
+        {
+            vertical-align: middle;
+            font-size: large;
+            font-weight: bold;
+            position: absolute;
+			padding-top: 10px;
+        }
+        .spantext
+        {
+            color: white;
+            font-family: Arial;
+        }
+        span
+        {
+            font-family: Arial;
+            color: white;
+        }
+        .name
+        {
+            font-size: large;
+        }
+        .number
+        {
+            text-align: right;
+            font-size: small;
+            float: right;
+        }
+        .address
+        {
+            font-size: smaller;
+        }
+        ul
+        {
+            padding: 0px;
+            margin: 0px;
+        }
+        .MTNUnderline
+        {
+            width: 100%;
+            background-color: #78C6DF;
+            height: 2px;
+            margin: 0px;
+        }
+        
+        a
+        {
+        	text-decoration:none;
+        }
+    </style>
+
+    <script src="Scripts/jquery-1.9.1.js"></script>
+
+    <link rel="stylesheet" href="Styles/MTN.css" />
+
+    <script type="text/javascript">
+
+        $(function () {
+            var myObjects = [
+                {
+                    name: "Flora",
+                    number: "No Number",
+                    Address: "13-15 castle rockAvenue lekki Lagos",
+                },
+                {
+                    name: "Mathew",
+                    number: "No Number",
+                    Address: "PC 34 Idowu Taylor Street Victoria Island Lagos",
+                },
+                {
+                    name: "Manual",
+                    number: "No Number",
+                    Address: "KM 24 Lekki-Epe Expressway Ikota Lagos",
+                },
+                {
+                    name: "Kim Hyun",
+                    number: "No Number",
+                    Address: "49 Adekunle Fajuyi Way GRA Ikeja Lagos",
+                },
+                {
+                    name: "Kim Dhan Ji",
+                    number: "No Number",
+                    Address: "27B Gerrard Road Ikoyi Lagos",
+                },
+                {
+                    name: "Lee Min Ho",
+                    number: "No Number",
+                    Address: "2nd Floor, Standard Alliance Group Building, Plot 1, Block 94, Providence Street, Lekki Peninsula Scheme 1, Lekki, , Lagos, Mangolia",
+                },
+                {
+                    name: "Jang Hyun suk",
+                    number: "No Number",
+                    Address: "Mainstreet Bank Building Admarilty Way Lekki Phase 1, Lagos",
+                },
+            ];
+            $.each(myObjects, function () {
+                $("#unorderedlist").append(
+                "<li><a href='QuestList.html'><span class='name'>" + this.name + "</span>" +
+                "<span class='number'>" + this.number + "</span><br />" +
+                "<span class='address'>" + this.Address + "</span></a> </li><hr>");
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <div class="header">
+        &nbsp;<img class="header" src="Images/Footerlogo.png" align="middle">&nbsp; <span class="headertext">
+            Customers</span>
+    </div>
+    <div class="MTNUnderline">
+    </div>
+    <div>
+        <ul id="unorderedlist">
+        </ul>
+    </div>
+</body>
+</html>

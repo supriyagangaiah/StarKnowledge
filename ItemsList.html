@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body
+        {
+            background-color: black;
+            text-align: left;
+        }
+        /*div.header {
+            background-color: black;
+        }*/.headertext
+        {
+            vertical-align: middle;
+            font-size: large;
+            font-weight: bold;
+            position: absolute;
+        }
+        .spantext
+        {
+            color: white;
+            font-family: Arial;
+        }
+        span
+        {
+            font-family: Arial;
+            color: white;
+        }
+        .name
+        {
+            font-size: large;
+        }
+        .number
+        {
+            text-align: right;
+            font-size: small;
+            float: right;
+        }
+        .address
+        {
+            font-size: smaller;
+        }
+        ul
+        {
+            padding: 0px;
+            margin: 0px;
+        }
+        .MTNUnderline
+        {
+            width: 100%;
+            background-color: #78C6DF;
+            height: 2px;
+            margin: 0px;
+        }
+        
+        a
+        {
+        	text-decoration:none;
+        }
+        
+        .liimg
+        {
+            height:65px;	
+            width:60px;
+            padding-right:10px;
+        }
+        
+        li
+        {
+        	list-style:none;
+        }
+    </style>
+
+    <script src="Scripts/jquery-1.9.1.js"></script>
+
+    <link rel="stylesheet" href="Styles/MTN.css" />
+
+    <script type="text/javascript">
+
+        $(function () {
+            var myObjects = [
+                {
+                    name: "Advanced Fleet Management",
+                    category: "M2M - Vehicle Tracking",
+                    description: "Advanced fleet management services",
+                    price: "90000",
+                },
+                {
+                    name: "Basic Model",
+                    category: "M2M - Vehicle Tracking",
+                    description: "Basic vehicle tracking service",
+                    price: "42000",
+                },
+                {
+                    name: "Fleet Management",
+                    category: "M2M - Vehicle Tracking",
+                    description: "Fleet management services",
+                    price: "60000",
+                },
+                {
+                    name: "Basic Edition",
+                    category: "Mobile Device Management",
+                    description: "MDM only",
+                    price: "750",
+                },
+                {
+                    name: "Professional Edition",
+                    category: "Mobile Device Management",
+                    description: "MDM + 750 MB Bundle",
+                    price: "3750",
+                },
+                {
+                    name: "Standard Edition",
+                    category: "Mobile Device Management",
+                    description: "MDM + 1.5 GB Bundle",
+                    price: "3750",
+                },
+                {
+                    name: "CUG Biz Cap",
+                    category: "Stark CUG",
+                    description: "500+ lines",
+                    price: "500",
+                },
+                {
+                    name: "CUG Plus 1000",
+                    category: "Stark CUG",
+                    description: "50+ lines",
+                    price: "1000",
+                },
+                {
+                    name: "CUG Plus 1500",
+                    category: "Stark CUG",
+                    description: "10+ lines",
+                    price: "1500",
+                },
+                {
+                    name: "CUG Xtra",
+                    category: "Stark CUG",
+                    description: "400+ lines",
+                    price: "750",
+                },
+                {
+                    name: "1 mbps (30 days)",
+                    category: "Stark Hynet",
+                    description: "1 mbps (30 days)",
+                    price: "17500",
+                },
+                {
+                    name: "1 mbps (6 months)",
+                    category: "Stark Hynet",
+                    description: "1 mbps (6 months)",
+                    price: "105000",
+                },
+                {
+                    name: "2 mbps (30 days)",
+                    category: "Stark Hynet",
+                    description: "2 mbps (30 days)",
+                    price: "26350",
+                },
+                {
+                    name: "0700 Smart Number",
+                    category: "Stark Smart Number",
+                    description: "Non toll free",
+                    price: "26250",
+                },
+                {
+                    name: "0800 Toll Free Smart Number",
+                    category: "Stark Smart Number",
+                    description: "Toll free",
+                    price: "26250",
+                },
+            ];
+            $.each(myObjects, function () {
+                $("#unorderedlist").append(
+                "<li><a href='QuestList.html'><div style='float:left'><img src='Images/Footerlogo.png' class='liimg'></div>" +
+                "<div><span class='name'>" + this.name + "</span><br />" +
+                "<span class='address'>" + this.category + "</span><br />" +
+                "<span class='address'>" + this.description + "</span><div></a> </li><hr>");
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <div class="header">
+        &nbsp;<img class="header" src="Images/Footerlogo.png" align="middle">&nbsp; <span class="headertext">
+            SK</span>
+    </div>
+    <div class="MTNUnderline">
+    </div>
+    <br />
+    <div>
+        <ul id="unorderedlist">
+        </ul>
+    </div>
+</body>
+</html>
